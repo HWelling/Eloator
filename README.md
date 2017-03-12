@@ -4,7 +4,7 @@ Elo-Ranking Tool
 
 ## KeyCloak
 
-For the authentication a KeyCloak-Server is requiered. 
+For the authentication a KeyCloak-Server is required. 
 
 ## Technology-Stack
 
