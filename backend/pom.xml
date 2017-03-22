@@ -6,9 +6,10 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Eloator</name>
 	<description>Elo-Ranking Tool</description>
-	
+
 	<properties>
 		<keycloak.version>2.5.4.Final</keycloak.version>
+		<!-- <junit.version>4.12</junit.version>  -->
 	</properties>
 
 	<parent>
@@ -32,6 +33,11 @@
 			<groupId>org.keycloak</groupId>
 			<artifactId>keycloak-spring-boot-adapter</artifactId>
 			<version>${keycloak.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
 		</dependency>
 
 	</dependencies>
