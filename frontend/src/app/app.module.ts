@@ -6,8 +6,8 @@ import { HeroDetailComponent } from './hero-detail.component';
 import { HeroesComponent }     from './heroes.component';
 import { HeroService }         from './hero.service';
 import { RouterModule }   from '@angular/router';
-import { DashboardComponent } from './dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
+import { EloDashboardComponent} from './eloclient/dashboard.component';
 
 @NgModule({
   imports: [
@@ -26,7 +26,7 @@ import { AppRoutingModule } from './app-routing.module';
     },
     {
       path: 'dashboard',
-      component: DashboardComponent
+      component: EloDashboardComponent
     },
     {
       path: 'detail/:id',
@@ -38,7 +38,7 @@ import { AppRoutingModule } from './app-routing.module';
     AppComponent,
     HeroDetailComponent,
     HeroesComponent,
-    DashboardComponent
+    EloDashboardComponent
   ],
   providers: [
     HeroService
