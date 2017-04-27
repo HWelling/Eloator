@@ -1,0 +1,19 @@
+<h3>{{title}}</h3>
+<div class="grid grid-pad">
+  <h4>{{title}}</h4>
+  <div>
+        <label>First Player: </label>
+        <input [(ngModel)]="player1eloNumber" placeholder="1000"/>
+  </div>
+  <div>
+        <label>Second Player: </label>
+        <input [(ngModel)]="player2eloNumber" placeholder="1000"/>
+  </div>
+  <div>
+        <label>Result: </label>
+        <input [(ngModel)]="player1Points" placeholder="0"/> : <input [(ngModel)]="player2Points" placeholder="0"/> 
+  </div>
+  <div>
+         <button (click)="doCalculate()">Berechnen!</button>
+  </div>
+</div>

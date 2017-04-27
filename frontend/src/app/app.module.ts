@@ -7,8 +7,10 @@ import { HeroesComponent }     from './heroes.component';
 import { HeroService }         from './hero.service';
 import { RouterModule }   from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-import { EloDashboardComponent} from './eloclient/dashboard.component';
-
+import { EloDashboardComponent } from './eloclient/dashboard.component';
+import { EloCalculatorComponent } from './eloclient/calculator.component';
+import { EloCalcService } from './eloclient/service/elocal.service';
+ 
 @NgModule({
   imports: [
     AppRoutingModule,
@@ -21,8 +23,8 @@ import { EloDashboardComponent} from './eloclient/dashboard.component';
       pathMatch: 'full'
     },
     {
-      path: 'heroes',
-      component: HeroesComponent
+      path: 'calculator',
+      component: EloCalculatorComponent
     },
     {
       path: 'dashboard',
@@ -37,11 +39,11 @@ import { EloDashboardComponent} from './eloclient/dashboard.component';
   declarations: [
     AppComponent,
     HeroDetailComponent,
-    HeroesComponent,
+    EloCalculatorComponent,
     EloDashboardComponent
   ],
   providers: [
-    HeroService
+    EloCalcService
   ],
   bootstrap: [ AppComponent ]
 })

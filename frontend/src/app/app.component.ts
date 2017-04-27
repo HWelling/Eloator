@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
    <h1>{{title}}</h1>
    <nav>
      <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-     <a routerLink="/elocalc" routerLinkActive="active">Elo-Rechner</a>
+     <a routerLink="/calculator" routerLinkActive="active">Elo-Rechner</a>
    </nav>
    <router-outlet></router-outlet>
  `
