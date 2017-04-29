@@ -10,12 +10,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { EloDashboardComponent } from './eloclient/dashboard.component';
 import { EloCalculatorComponent } from './eloclient/calculator.component';
 import { EloCalcService } from './eloclient/service/elocal.service';
+import {HttpModule} from '@angular/http';
+ 
  
 @NgModule({
   imports: [
     AppRoutingModule,
     BrowserModule,
     FormsModule,
+    HttpModule,
     RouterModule.forRoot([
     {
       path: '',
