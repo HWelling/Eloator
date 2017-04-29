@@ -4,6 +4,9 @@ import de.clearwave.challanger.eloator.domain.KNumber;
 import de.clearwave.challanger.eloator.domain.WinningPoints;
 
 public class ElonumberCalculator {
+	
+	// TODO: k für > 2400 => 10; weniger als 30 partien => 40; jugend => 40
+	// TODO: elo -elo > 400 => 400 ; elo -elo < -400 => -400
 
 	public static long calcElonumber(double eloA, double eloB, KNumber k,
 			WinningPoints w) {

@@ -5,7 +5,7 @@ import de.clearwave.challanger.eloator.domain.exceptions.NoValueForStringExcepti
 public enum KNumber {
 	STANDARD(20),
 	TOPPLAYER(10),
-	LESS30MATCHES(30),
+	LESS30MATCHES(40),
 	JOUTH(40);
 	
 	private double value;
