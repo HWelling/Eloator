@@ -15,16 +15,7 @@ public enum WinningPoints {
 		return value;
 	}
 
-	public WinningPoints valueOf(double n) {
-		for (WinningPoints x : WinningPoints.values()) {
-			if (n == x.getValue()) {
-				return x;
-			}
-		}
-		return null;
-	}
-
-	public double doubleValueOf(String n) throws NoValueForStringException {
+	public static double doubleValueOf(String n) throws NoValueForStringException {
 		for (WinningPoints x : WinningPoints.values()) {
 			if (n.equals(x.name())) {
 				return x.getValue();

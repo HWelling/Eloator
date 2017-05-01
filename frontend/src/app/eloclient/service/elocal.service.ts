@@ -3,6 +3,8 @@ import { KNumber } from '../enums/KNumber.enum';
 import { WinningPoints } from '../enums/WinningPoints.enum';
 import { Http, Headers, Response } from '@angular/http';
 import { Result } from '../domain/result';
+import { ElonumberRequest } from '../domain/elonumberRequest';
+import { Player } from '../domain/player';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -14,25 +16,30 @@ export class EloCalcService {
 
     }
 
-    doCalculateEloNumber(aElo:Number, bElo:Number, kNum:KNumber, w:Number): Observable<Result>{
-        var win: WinningPoints;
-        if(w > 0){win = WinningPoints.WIN};
-        if(w < 0){win = WinningPoints.DEFEAT};
-        if(w == 0){win = WinningPoints.DRAW};
-
-        var winstr: String = WinningPoints[win];
-        var kNumstr: String = KNumber[kNum];
+    doCalculateEloNumber(aElo:Number, bElo:Number, pointsA:Number, pointsB:Number): Observable<Result>{
         var header:Headers;
-
         header = new Headers();
 
         var result:Result;
 
-        var url = `http://localhost:8080/elo/calc/result.json?a=${aElo}&b=${bElo}&k=${kNumstr}&w=${winstr}`;
-        return this.http.get(url.toString(), {headers: header}).map(this.extractData);
-        //console.log("POne: " + result.eloPlayerOne);
-        //return Promise.resolve(result);
-        //return result;
+        var personA: Player = new Player();
+        personA.eloNumber = aElo;
+        var personB: Player = new Player();
+        personB.eloNumber = bElo;
+        var request: ElonumberRequest = new ElonumberRequest();
+
+        request.setPersonA(personA);
+        request.setPersonB(personB);
+        request.setPointsA(pointsA);
+        request.setPointsB(pointsB);
+
+        console.log("Req: " + JSON.stringify(request));
+
+        //var url = `http://localhost:8080/elo/calc/result.json?a=${aElo}&b=${bElo}&k=${kNumstr}&w=${winstr}`;
+        //return this.http.get(url.toString(), {headers: header}).map(this.extractData);
+
+        var url = `http://localhost:8080/elo/calc/result.json`;
+        return this.http.post(url, request, {headers: header}).map(this.extractData);
     }
 
     private extractData(res: Response): Result {

@@ -28,7 +28,7 @@ export class EloCalculatorComponent implements OnInit {
     var player2eloNumberOld:Number = this.result.eloPlayerTwo;
 
     win =  this.player1Points - this.player2Points;
-    this.calcService.doCalculateEloNumber(player1eloNumberOld, player2eloNumberOld, KNumber.STANDARD, win).subscribe(res => this.result = res);
+    this.calcService.doCalculateEloNumber(player1eloNumberOld, player2eloNumberOld, this.player1Points, this.player2Points).subscribe(res => this.result = res);
 
     console.log("DEBUG");
 

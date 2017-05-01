@@ -18,16 +18,7 @@ public enum KNumber {
 		return value;
 	}
 	
-	public KNumber valueOf(double n) {
-		for (KNumber x : KNumber.values()) {
-			if (n == x.getValue()) {
-				return x;
-			}
-		}
-		return null;
-	}
-
-	public double doubleValueOf(String n) throws NoValueForStringException {
+	public static double doubleValueOf(String n) throws NoValueForStringException {
 		for (KNumber x : KNumber.values()) {
 			if (n.equals(x.name())) {
 				return x.getValue();

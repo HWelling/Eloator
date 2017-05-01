@@ -2,11 +2,12 @@ package de.clearwave.challanger.eloator.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import de.clearwave.challanger.eloator.domain.ElonumberRequest;
 import de.clearwave.challanger.eloator.domain.MatchResult;
-import de.clearwave.challanger.eloator.domain.PlayerPerson;
 import de.clearwave.challanger.eloator.service.ElonumberService;
 
 @RestController
@@ -18,9 +19,13 @@ public class ElonumberControllerImpl implements ElonumberController {
 
 	@Override
 	@RequestMapping("/elo/calc/result")
-	public MatchResult getResult(PlayerPerson personA, PlayerPerson personB, long pointsA, long pointsB) {
-		return service.getResult(personA, personB, pointsA, pointsB);
+	public MatchResult getResult(@RequestBody ElonumberRequest request) {
+		return service.getResult(request.getPersonA(), request.getPersonB(), request.getPointsA(), request.getPointsB());
 	}
+	
+//	public MatchResult getResult(@RequestBody PlayerPerson personA,@RequestBody PlayerPerson personB,@RequestBody long pointsA,@RequestBody long pointsB) {
+//		return service.getResult(personA, personB, pointsA, pointsB);
+//	}
 	
 //	private long getElonumber(double eloA, double eloB, KNumber k, WinningPoints w) {
 //		return ElonumberCalculator.calcElonumber(eloA, eloB, k, w);

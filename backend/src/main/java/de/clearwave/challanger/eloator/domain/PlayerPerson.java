@@ -4,6 +4,11 @@ public class PlayerPerson extends Person {
 
 	private long eloNumber;
 	
+	public PlayerPerson()
+	{
+		super("","");
+	}
+	
 	public PlayerPerson(String name, String lastName) {
 		super(name, lastName);
 	}
